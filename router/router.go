@@ -12,7 +12,8 @@ func InitRouter(router *gin.Engine) {
 	router.StaticFS("/css", http.Dir("./view/reception/css"))
 	router.StaticFS("/images", http.Dir("./view/reception/images"))
 	router.StaticFS("/js", http.Dir("./view/reception/js"))
-	router.GET("/", handler.GetLogin)
+	router.GET("/", handler.GetHome)
 	router.GET("/home", handler.GetHome)
+	router.GET("/login", handler.GetLogin)
 	router.POST("/login", handler.Login)
 }

@@ -1,5 +1,9 @@
 package constant
 
 const (
-	ErrRecordNotFound = "ErrRecordNotFound"
+	ErrRecordNotFound = "record not found"
+)
+
+const (
+	TableMember = "member"
 )

@@ -1,6 +1,6 @@
 package constant
 
 const (
-	ReceptionStorageDirectory = "reception/"
-	BackstageStorageDirectory = "backstage/"
+	CookieMaxAge      = 3600 * 24 * 3
+	CookieAccessScope = "127.0.0.1"
 )
