@@ -1,17 +1,16 @@
 package main
 
 import (
-	"net/http"
-
 	"github.com/gin-gonic/gin"
+	database "github.com/muyisz/PracticalTraining/database/operation"
+	"github.com/muyisz/PracticalTraining/router"
 )
 
 func main() {
-	router := gin.Default()
+	database.InitDB()
 
-	router.GET("/", func(context *gin.Context) {
-		context.String(http.StatusOK, "HelloWorld")
-	})
+	r := gin.Default()
+	router.InitRouter(r)
 
-	router.Run(":3333")
+	r.Run(":8080")
 }
