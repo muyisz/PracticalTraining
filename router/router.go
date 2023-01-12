@@ -16,4 +16,9 @@ func InitRouter(router *gin.Engine) {
 	router.GET("/home", handler.GetHome)
 	router.GET("/login", handler.GetLogin)
 	router.POST("/login", handler.Login)
+	router.GET("/buycar", handler.GetBuyCar)
+	router.GET("/order", handler.GetOrder)
+	router.POST("/leaving_message", handler.PostLeavingMessage)
+	router.POST("/order", handler.CreateOrder)
+	router.GET("/product_detail", handler.GetProductDetail)
 }

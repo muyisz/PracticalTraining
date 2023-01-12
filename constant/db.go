@@ -5,5 +5,10 @@ const (
 )
 
 const (
-	TableMember = "member"
+	TableMember      = "member"
+	TableBuyCar      = "buycar"
+	TableProduct     = "product"
+	TableOrder       = "myorder"
+	TableOrderDetail = "orderdetail"
+	TableMessage     = "message"
 )

@@ -22,5 +22,7 @@ func InitDB() {
 		}
 
 		db = database
+
+		SetOrderIncrementID()
 	})
 }
