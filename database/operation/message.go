@@ -15,7 +15,7 @@ func CreateMessage(title string, Msg string, mid int) error {
 		Date:    time.Now(),
 		Mid:     mid,
 	}
-	if err := db.Table(constant.TableMessage).Create(message).Error; err != nil {
+	if err := db.Table(constant.TableMessage).Create(&message).Error; err != nil {
 		log.Printf("[CreateMessage] Create err,message:%+v,err:%+v", message, err)
 		return err
 	}

@@ -11,4 +11,5 @@ const (
 	TableOrder       = "myorder"
 	TableOrderDetail = "orderdetail"
 	TableMessage     = "message"
+	TableAdmin       = "admin"
 )

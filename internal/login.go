@@ -19,3 +19,15 @@ func Login(userName string, password string) (bool, error) {
 	}
 	return true, nil
 }
+
+func AdminLogin(userName string, password string) (bool, error) {
+	user, err := database.GetAdmin(userName)
+	if err != nil {
+		log.Printf("[AdminLogin] GetAdmin err,userName:%+v,err:%+v", userName, err)
+		return false, err
+	}
+	if user.Password != password {
+		return false, fmt.Errorf(constant.WrongPassword)
+	}
+	return true, nil
+}

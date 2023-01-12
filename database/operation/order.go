@@ -26,7 +26,7 @@ func GetUserOrder(oid int) ([]model.Order, error) {
 	return orderList, nil
 }
 
-func CreateOrder(mid int, pid int, address string) (int, error) {
+func CreateOrder(mid int, address string) (int, error) {
 	order := model.Order{
 		ID:      OrderIncrementID(),
 		Time:    time.Now(),
@@ -35,7 +35,7 @@ func CreateOrder(mid int, pid int, address string) (int, error) {
 		Address: address,
 	}
 
-	if err := db.Table(constant.TableOrder).Create(order).Error; err != nil {
+	if err := db.Table(constant.TableOrder).Create(&order).Error; err != nil {
 		log.Printf("[CreateOrder] Create err,order:%+v,err:%+v", order, err)
 		return 0, err
 	}

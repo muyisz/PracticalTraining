@@ -31,3 +31,13 @@ func GetUserBuyCar(user_name string) ([]body.BuyCarRes, error) {
 
 	return buyCarInfoList, nil
 }
+
+func CreateUser(userName string, password string, name string, identity string, tel string, email string, state int) error {
+
+	if err := database.CreateUser(userName, password, name, identity, tel, email, state); err != nil {
+		log.Printf("[CreateUser] CreateUser err,err:%+v", err)
+		return err
+	}
+
+	return nil
+}

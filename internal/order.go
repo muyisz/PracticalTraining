@@ -38,7 +38,7 @@ func CreateOrder(pid int, num int, address string, userName string) error {
 		return err
 	}
 	//todo 事务
-	orderId, err := database.CreateOrder(user.ID, pid, address)
+	orderId, err := database.CreateOrder(user.ID, address)
 	if err != nil {
 		log.Printf("[CreateOrder] CreateOrder err,userID:%+v,pid:%+v,address:%+v,err:%+v", user.ID, pid, address, err)
 		return err

@@ -41,6 +41,24 @@ type OrderReq struct {
 	Address string `json:"address"`
 }
 
-type GetProductRea struct {
+type GetProductReq struct {
 	Pid int `json:"pod"`
+}
+
+type GetProductRes struct {
+	Name    string  `json:"name"`
+	Type    string  `json:"type"`
+	Color   string  `json:"color"`
+	Price   float64 `json:"price"`
+	State   int     `json:"state"`
+	Number  int     `json:"number"`
+	Img     string  `json:"img"`
+	ImgPath string  `json:"imgPath"`
+	Cid     int     `json:"cid"`
+}
+
+type UserInfo struct {
+	UserName string `json:"user_name"`
+	Password string `json:"password"`
+	Email    string `json:"email"`
 }

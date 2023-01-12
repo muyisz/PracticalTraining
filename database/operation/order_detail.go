@@ -26,7 +26,7 @@ func CreateOrderDetail(oid int, pid int, num int) error {
 		Number: num,
 	}
 
-	if err := db.Table(constant.TableOrderDetail).Create(orderDetail).Error; err != nil {
+	if err := db.Table(constant.TableOrderDetail).Create(&orderDetail).Error; err != nil {
 		log.Printf("[CreateOrderDetail] Create err,orderDetail:%+v,err:%+v", orderDetail, err)
 		return err
 	}

@@ -1,5 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
+<script src="js/backstage_login.js"></script>
+<script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<link href="assets/css/bootstrap.min.css" rel="stylesheet" />
@@ -54,14 +57,14 @@
 											<form class="">
 												<fieldset>
 										<ul>
-   <li class="frame_style form_error"><label class="user_icon"></label><input name="用户名" type="text"  id="username"/><i>用户名</i></li>
-   <li class="frame_style form_error"><label class="password_icon"></label><input name="密码" type="password"   id="userpwd"/><i>密码</i></li>
+   <li class="frame_style form_error"><label class="user_icon"></label><input name="用户名" type="text"  id="user_name"/><i>用户名</i></li>
+   <li class="frame_style form_error"><label class="password_icon"></label><input name="密码" type="password"   id="password"/><i>密码</i></li>
   </ul>
 													<div class="space"></div>
 
 													<div class="clearfix">
 
-														<button type="button" class="width-35 pull-right btn btn-sm btn-primary" id="login_btn">
+														<button type="button"  onclick="login()" class="width-35 pull-right btn btn-sm btn-primary" id="login_btn">
 															<i class="icon-key"></i>
 															登陆
 														</button>
