@@ -50,3 +50,11 @@ func CreateOrder(pid int, num int, address string, userName string) error {
 	}
 	return nil
 }
+
+func CancelOrder(oid int) error {
+	if err := database.CancelOrder(oid); err != nil {
+		log.Printf("[CancelOrder] CancelOrder err,orderId:%+v,err:%+v", oid, err)
+		return err
+	}
+	return nil
+}

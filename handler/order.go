@@ -23,8 +23,7 @@ func GetOrder(c *gin.Context) {
 	}
 	orderList, err := internal.GetUserOrder(userName)
 	if err != nil {
-		log.Printf("[GetOrder] GetUserOrder err,userName:%+v,er:%+v", userName, err)
-		log.Printf("[GetOrder] Cookie err,err:%+v", err)
+		log.Printf("[GetOrder] GetUserOrder err,userName:%+v,err:%+v", userName, err)
 		c.JSON(http.StatusOK, body.Res{
 			Code: -1,
 			Msg:  constant.GetOrderFailed,
@@ -74,4 +73,34 @@ func CreateOrder(c *gin.Context) {
 	c.JSON(http.StatusBadRequest, body.Res{
 		Code: 0,
 	})
+}
+
+func CancelOrder(c *gin.Context) {
+	parms, err := c.GetRawData()
+	if err != nil {
+		log.Printf("[CancelOrder] GetRawData err,reqBody:%+v,err:%+v", c.Request.Body, err)
+		c.JSON(http.StatusBadRequest, body.Res{
+			Code: -1,
+		})
+	}
+	reqBody := body.CancelOrderReq{}
+	if err := util.PostForm(parms, &reqBody); err != nil {
+		log.Printf("[CancelOrder] BindJSON err,reqBody:%+v,err:%+v", reqBody, err)
+		c.JSON(http.StatusBadRequest, body.Res{
+			Code: -1,
+		})
+		return
+	}
+
+	if err := internal.CancelOrder(reqBody.Oid); err != nil {
+		log.Printf("[CancelOrder] CancelOrder err,orderID:%+v,err:%+v", reqBody.Oid, err)
+		c.JSON(http.StatusBadRequest, body.Res{
+			Code: -1,
+		})
+		return
+	}
+	c.JSON(http.StatusOK, body.Res{
+		Code: 0,
+	})
+
 }

@@ -15,11 +15,11 @@ var (
 	orderIncrementID int
 )
 
-func GetUserOrder(oid int) ([]model.Order, error) {
+func GetUserOrder(mid int) ([]model.Order, error) {
 	orderList := []model.Order{}
 
-	if err := db.Table(constant.TableOrder).Where("id=?", oid).Find(&orderList).Error; !util.DBQueryErr(err) {
-		log.Printf("[GetProductByID] First err,oid:%+v,err:%+v", oid, err)
+	if err := db.Table(constant.TableOrder).Where("mid=?", mid).Find(&orderList).Error; !util.DBQueryErr(err) {
+		log.Printf("[GetProductByID] First err,oid:%+v,err:%+v", mid, err)
 		return nil, err
 	}
 
@@ -51,6 +51,14 @@ func GetMaxIncrementID() (int, error) {
 	}
 
 	return maxID, nil
+}
+
+func CancelOrder(oid int) error {
+	if err := db.Table(constant.TableOrder).Where("id=?", oid).UpdateColumn("state", constant.OrderStateCancel).Error; err != nil {
+		log.Printf("[CancelOrder] UpdateColumn err,err:%+v", err)
+		return err
+	}
+	return nil
 }
 
 func OrderIncrementID() int {

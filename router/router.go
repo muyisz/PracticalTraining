@@ -35,4 +35,6 @@ func InitRouter(router *gin.Engine) {
 	router.GET("/order_list", handler.GetOrderPage)
 	router.GET("/product_list", handler.GetProductListPage)
 	router.GET("/user_list", handler.GetUserListPage)
+	router.GET("/my_order", handler.GetMyOrderPage)
+	router.POST("/cancel_order", handler.CancelOrder)
 }

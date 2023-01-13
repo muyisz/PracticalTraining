@@ -13,3 +13,7 @@ const (
 	TableMessage     = "message"
 	TableAdmin       = "admin"
 )
+
+const (
+	OrderStateCancel = 4
+)

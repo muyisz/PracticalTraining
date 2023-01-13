@@ -45,3 +45,7 @@ func GetProductListPage(c *gin.Context) {
 func GetUserListPage(c *gin.Context) {
 	c.HTML(http.StatusOK, "user_list.html", gin.H{})
 }
+
+func GetMyOrderPage(c *gin.Context) {
+	c.HTML(http.StatusOK, "my_order.html", gin.H{})
+}

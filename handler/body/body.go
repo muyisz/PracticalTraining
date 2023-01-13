@@ -62,3 +62,7 @@ type UserInfo struct {
 	Password string `json:"password"`
 	Email    string `json:"email"`
 }
+
+type CancelOrderReq struct {
+	Oid int `json:"oid"`
+}
